@@ -23,7 +23,7 @@ bl_info = {
     "description": "Miscellaneous 3d visualization tools",
     "author": "Arlo Sheridan",
     "version": (0, 0, 1),
-    "blender": 2.79,
+    "blender": (2, 7, 9),
     "location": "View3D",
     "warning": "This addon is still in development.",
     "wiki_url": "",
@@ -31,7 +31,6 @@ bl_info = {
 
 
 import bpy
-
 
 # load and reload submodules
 ##################################
