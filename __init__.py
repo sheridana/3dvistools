@@ -1,8 +1,8 @@
 '''
-Copyright (C) CURRENT_YEAR YOUR NAME
-YOUR@MAIL.com
+Copyright (C) 2018 Arlo Sheridan
+sheridana@janelia.hhmi.org
 
-Created by YOUR NAME
+Created by Arlo Sheridan
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@ bl_info = {
     "author": "Arlo Sheridan",
     "version": (0, 0, 1),
     "blender": (2, 7, 9),
-    "location": "View3D",
+    "location": "Properties > Scene > 3dvistools",
     "warning": "This addon is still in development.",
     "wiki_url": "",
     "category": "Object" }
@@ -38,6 +38,7 @@ import bpy
 import importlib
 from . import developer_utils
 importlib.reload(developer_utils)
+from . import importpanel
 modules = developer_utils.setup_addon_modules(__path__, __name__, "bpy" in locals())
 
 
