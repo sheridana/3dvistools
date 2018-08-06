@@ -19,11 +19,11 @@ Created by YOUR NAME
 '''
 
 bl_info = {
-    "name": "Your Addon Name",
-    "description": "",
-    "author": "Your Name",
+    "name": "3dvistools",
+    "description": "Miscellaneous 3d visualization tools",
+    "author": "Arlo Sheridan",
     "version": (0, 0, 1),
-    "blender": BLENDER_VERSION,
+    "blender": 2.79,
     "location": "View3D",
     "warning": "This addon is still in development.",
     "wiki_url": "",
