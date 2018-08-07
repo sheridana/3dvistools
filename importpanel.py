@@ -42,6 +42,11 @@ class importPanel(bpy.types.Panel):
         row.alignment = 'EXPAND'
         row.operator("neuron.modifiers", text = "Add/remove modifiers", icon = 'MODIFIER')
 
+        row = layout.row(align = True)
+        row.alignment = 'EXPAND'
+        row.operator("neuron_scale_rotation.location", text = "Object manipulation", icon = 'OUTLINER_OB_GROUP_INSTANCE')
+
+
 def register():
     bpy.utils.register_module(__name__)
     
