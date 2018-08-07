@@ -1,4 +1,4 @@
-from . import batchimport, newwindow, viewmode, modifiers, objectmanipulation, materials, editobjects, batchexport, animation, automated, worldbackground
+from . operators import *
 import bpy, blf
 import os
 import re
@@ -28,7 +28,7 @@ class importPanel(bpy.types.Panel):
         
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
-        row.operator("batch.import", text = "Batch import objects", icon = 'IMPORT')
+        row.operator("batch.import", text = "Batch import", icon = 'IMPORT')
 
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
@@ -44,7 +44,7 @@ class importPanel(bpy.types.Panel):
 
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
-        row.operator("neuron.modifiers", text = "Add/remove modifiers", icon = 'MODIFIER')
+        row.operator("neuron.modifiers", text = "Modifiers", icon = 'MODIFIER')
 
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
@@ -52,7 +52,7 @@ class importPanel(bpy.types.Panel):
 
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
-        row.operator("change.materials", text = "Change materials", icon = 'MATERIAL')
+        row.operator("change.materials", text = "Materials", icon = 'MATERIAL')
 
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
@@ -60,15 +60,15 @@ class importPanel(bpy.types.Panel):
 
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
-        row.operator("batch.export", text = "Batch export objects", icon = 'EXPORT')
+        row.operator("batch.export", text = "Batch export", icon = 'EXPORT')
 
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
-        row.operator("simple.animation", text = "Create a simple animation", icon = 'RENDER_ANIMATION')
+        row.operator("simple.animation", text = "Simple animation", icon = 'RENDER_ANIMATION')
 
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
-        row.operator("test.plugin", text = "Automated manipulation", icon = "PLUGIN")
+        row.operator("test.plugin", text = "Automate", icon = "PLUGIN")
 
 
 def register():
