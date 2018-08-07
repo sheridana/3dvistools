@@ -1,4 +1,4 @@
-from . import batchimport, newwindow, viewmode, modifiers, objectmanipulation, materials, editobjects
+from . import batchimport, newwindow, viewmode, modifiers, objectmanipulation, materials, editobjects, batchexport
 import bpy, blf
 import os
 import re
@@ -53,6 +53,10 @@ class importPanel(bpy.types.Panel):
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
         row.operator("edit.objects", text = "Edit objects", icon = 'EDIT')
+
+        row = layout.row(align = True)
+        row.alignment = 'EXPAND'
+        row.operator("batch.export", text = "Batch export objects", icon = 'EXPORT')
 
 
 def register():
