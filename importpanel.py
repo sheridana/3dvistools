@@ -64,7 +64,7 @@ class importPanel(bpy.types.Panel):
 
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
-        row.operator("test.plugin", text = "test plugin", icon = "PLUGIN")
+        row.operator("test.plugin", text = "Automated manipulation", icon = "PLUGIN")
 
 
 def register():
