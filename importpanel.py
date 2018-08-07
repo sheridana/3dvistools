@@ -1,4 +1,4 @@
-from . import batchimport
+from . import batchimport, newwindow
 import bpy, blf
 import os
 import re
@@ -29,6 +29,10 @@ class importPanel(bpy.types.Panel):
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
         row.operator("batch.import", text = "Batch import objects", icon = 'IMPORT')
+
+        row = layout.row(align = True)
+        row.alignment = 'EXPAND'
+        row.operator("new.window", text = "New window", icon = 'SPLITSCREEN')
 
 def register():
     bpy.utils.register_module(__name__)
