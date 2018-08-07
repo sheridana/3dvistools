@@ -1,4 +1,4 @@
-from . import batchimport, newwindow
+from . import batchimport, newwindow, viewmode
 import bpy, blf
 import os
 import re
@@ -33,6 +33,10 @@ class importPanel(bpy.types.Panel):
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
         row.operator("new.window", text = "New window", icon = 'SPLITSCREEN')
+
+        row = layout.row(align = True)
+        row.alignment = 'EXPAND'
+        row.operator("view.mode", text = "View mode", icon = 'RESTRICT_VIEW_OFF')
 
 def register():
     bpy.utils.register_module(__name__)
