@@ -1,4 +1,4 @@
-from . import batchimport, newwindow, viewmode, modifiers
+from . import batchimport, newwindow, viewmode, modifiers, objectmanipulation, materials
 import bpy, blf
 import os
 import re
@@ -45,6 +45,10 @@ class importPanel(bpy.types.Panel):
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
         row.operator("neuron_scale_rotation.location", text = "Object manipulation", icon = 'OUTLINER_OB_GROUP_INSTANCE')
+
+        row = layout.row(align = True)
+        row.alignment = 'EXPAND'
+        row.operator("change.materials", text = "Change materials", icon = 'MATERIAL')
 
 
 def register():
