@@ -22,7 +22,7 @@ class batchImport(Operator):
     
     which_operating_system = EnumProperty( name = "Operating system?", items = [('UNIX', 'UNIX', 'UNIX'), ('Windows', 'Windows', 'Windows')], default = 'UNIX', description = "Change the operating system?")
     
-    which_import_method = EnumProperty( name = "Import method?", items = [('OBJ', 'OBJ', 'OBJ'), ('RAW', 'RAW', 'RAW'), ('DAE', 'DAE', 'DAE'), ('ABC', 'ABC', 'ABC'), ('3DS', '3DS', '3DS'), ('FBX', 'FBX', 'FBX'), ('BVH', 'BVH', 'BVH'), ('PLY', 'PLY', 'PLY'), ('X3D', 'X3D', 'X3D'), ('STL', 'STL', 'STL'), ('SVG', 'SVG', 'SVG')], default = 'OBJ', description = "Change the import method?")
+    which_import_method = EnumProperty( name = "Import method?", items = [('OBJ', 'OBJ', 'OBJ'), ('RAW', 'RAW', 'RAW')], default = 'OBJ', description = "Change the import method?")
     
     path_to_data = StringProperty( name="Path to data?", description="Choose a directory:", default="", maxlen=1024, subtype='DIR_PATH')
     
