@@ -1,4 +1,4 @@
-from . import batchimport, newwindow, viewmode, modifiers, objectmanipulation, materials, editobjects, batchexport, animation, automated
+from . import batchimport, newwindow, viewmode, modifiers, objectmanipulation, materials, editobjects, batchexport, animation, automated, worldbackground
 import bpy, blf
 import os
 import re
@@ -37,6 +37,10 @@ class importPanel(bpy.types.Panel):
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
         row.operator("view.mode", text = "View mode", icon = 'RESTRICT_VIEW_OFF')
+
+        row = layout.row(align = True)
+        row.alignment = 'EXPAND'
+        row.operator("world.background", text = "World background", icon = 'WORLD')
 
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
