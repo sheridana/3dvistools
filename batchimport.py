@@ -15,20 +15,6 @@ from bpy.types import Operator, AddonPreferences
 from bpy_extras.io_utils import ImportHelper, ExportHelper
 from bpy.props import FloatVectorProperty, FloatProperty, StringProperty, BoolProperty, EnumProperty, IntProperty, CollectionProperty
 
-class importPanel(bpy.types.Panel):
-    bl_space_type = 'PROPERTIES'
-    bl_region_type = 'WINDOW'
-    bl_context = 'scene'
-    bl_label = 'Volumetric neuron manipulation'
-    
-    def draw(self, context):
-        scene = context.scene
-        layout = self.layout
-        
-        row = layout.row(align = True)
-        row.alignment = 'EXPAND'
-        row.operator("batch.import", text = "Add new objects", icon = 'IMPORT')
-
 class batchImport(Operator):
     bl_idname = "batch.import"
     bl_label = "batch import"
