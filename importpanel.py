@@ -1,4 +1,4 @@
-from . import batchimport, newwindow, viewmode
+from . import batchimport, newwindow, viewmode, modifiers
 import bpy, blf
 import os
 import re
@@ -37,6 +37,10 @@ class importPanel(bpy.types.Panel):
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
         row.operator("view.mode", text = "View mode", icon = 'RESTRICT_VIEW_OFF')
+
+        row = layout.row(align = True)
+        row.alignment = 'EXPAND'
+        row.operator("neuron.modifiers", text = "Add/remove modifiers", icon = 'MODIFIER')
 
 def register():
     bpy.utils.register_module(__name__)
