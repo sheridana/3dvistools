@@ -20,9 +20,7 @@ class worldBackground(Operator):
     bl_label = "world background"
     bl_options = {'UNDO'}
 
-    #create_new_world = BoolProperty(name = "Create new world?", default = False, description = "Create new world")
-
-    world_name = StringProperty(name = "World name", default = 'World', description = "Give world a name")
+    current_world_name = StringProperty(name = "World to edit", default = 'World', description = "Choose which world to edit")
 
     horizon_color = FloatVectorProperty( name = "Horizon color", default = (0.0, 0.0, 0.0), min = 0.0, max = 1.0, subtype = 'COLOR', description = "Set horizon color")
 
@@ -44,7 +42,7 @@ class worldBackground(Operator):
         return True
     
     def execute(self, context):
-        world = bpy.data.worlds[self.world_name]
+        world = bpy.data.worlds[self.current_world_name]
 
         if self.paper_sky:
             world.use_sky_paper = True
@@ -71,7 +69,7 @@ class worldBackground(Operator):
         layout = self.layout
         box = layout.box()
         row = box.row(align = False)
-        row.prop(self, "world_name")
+        row.prop(self, "current_world_name")
         row = box.row(align = False)
         row.prop(self, "paper_sky")
         row.prop(self, "blend_sky")
@@ -83,7 +81,7 @@ class worldBackground(Operator):
         row.prop(self, "ambient_color")
 
     def invoke(self, context, event):
-        return context.window_manager.invoke_props_dialog(self, width = 800)
+        return context.window_manager.invoke_props_dialog(self, width = 1200)
 
 
 
