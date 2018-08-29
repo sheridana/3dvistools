@@ -49,6 +49,10 @@ class importPanel(bpy.types.Panel):
 
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
+        row.operator("jump.fix", text = "Jump fix", icon = "IPO_ELASTIC")
+
+        row = layout.row(align = True)
+        row.alignment = 'EXPAND'
         row.operator("neuron_scale_rotation.location", text = "Object manipulation", icon = 'OUTLINER_OB_GROUP_INSTANCE')
 
         row = layout.row(align = True)
