@@ -1,16 +1,6 @@
-import bpy, blf
+import bpy
 import os
-import re
-import random
-import time
-import datetime
-import json
-import math
-from math import pi, radians, degrees
-import colorsys
-import mathutils
 import sys
-import numpy as np
 from bpy.types import Operator, AddonPreferences
 from bpy_extras.io_utils import ImportHelper, ExportHelper
 from bpy.props import FloatVectorProperty, FloatProperty, StringProperty, BoolProperty, EnumProperty, IntProperty, CollectionProperty
