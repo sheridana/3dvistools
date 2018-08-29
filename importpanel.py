@@ -1,5 +1,6 @@
 from . operators import *
 import bpy, blf
+import bmesh
 import os
 import re
 import random
@@ -53,6 +54,10 @@ class importPanel(bpy.types.Panel):
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
         row.operator("change.materials", text = "Materials", icon = 'MATERIAL')
+
+        row = layout.row(align = True)
+        row.alignment = 'EXPAND'
+        row.operator("color.map", text = "Color map", icon = 'COLOR')
 
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
