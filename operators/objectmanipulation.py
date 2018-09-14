@@ -91,35 +91,33 @@ class neuronEditing(Operator):
                     if self.is_not:
                         ob_list = [ob for ob in bpy.data.objects if name.strip().lower() != ob.name.lower() ]
         
-        for ob in ob_list:
-            if self.change_origin:
-                if self.new_origin == 'Geometry to origin':
-                    bpy.ops.object.origin_set(type = 'GEOMETRY_ORIGIN')
-                if self.new_origin == 'Origin to geometry':
-                    bpy.ops.object.origin_set(type ='ORIGIN_GEOMETRY')
-                if self.new_origin == 'Origin to 3D cursor':
-                    bpy.ops.object.origin_set(type='ORIGIN_CURSOR')
-                if self.new_origin == 'Origin to center of mass (surface)': 
-                    bpy.ops.object.origin_set(type = 'ORIGIN_CENTER_OF_MASS')
-                if self.new_origin == 'Origin to center of mass (volume)': 
-                    bpy.ops.object.origin_set(type = 'ORIGIN_CENTER_OF_VOLUME')
-        
-        for ob in ob_list:         
-            if self.change_pivot_point:
-                for area in bpy.context.screen.areas:
-                    if area.type == 'VIEW_3D':
-                        for space in area.spaces:
-                            if space.type == 'VIEW_3D': 
-                                if self.new_pivot_point == 'Median point':
-                                    space.pivot_point = 'MEDIAN_POINT'
-                                if self.new_pivot_point == 'Active element':
-                                    space.pivot_point = 'ACTIVE_ELEMENT'
-                                if self.new_pivot_point == 'Individual origins':
-                                    space.pivot_point = 'INDIVIDUAL_ORIGINS'
-                                if self.new_pivot_point == '3D cursor':
-                                    space.pivot_point = 'CURSOR'
-                                if self.new_pivot_point == 'Bounding box center':
-                                    space.pivot_point = 'BOUNDING_BOX_CENTER'
+        if self.change_origin:
+            if self.new_origin == 'Geometry to origin':
+                bpy.ops.object.origin_set(type = 'GEOMETRY_ORIGIN')
+            if self.new_origin == 'Origin to geometry':
+                bpy.ops.object.origin_set(type ='ORIGIN_GEOMETRY')
+            if self.new_origin == 'Origin to 3D cursor':
+                bpy.ops.object.origin_set(type='ORIGIN_CURSOR')
+            if self.new_origin == 'Origin to center of mass (surface)': 
+                bpy.ops.object.origin_set(type = 'ORIGIN_CENTER_OF_MASS')
+            if self.new_origin == 'Origin to center of mass (volume)': 
+                bpy.ops.object.origin_set(type = 'ORIGIN_CENTER_OF_VOLUME')
+              
+        if self.change_pivot_point:
+            for area in bpy.context.screen.areas:
+                if area.type == 'VIEW_3D':
+                    for space in area.spaces:
+                        if space.type == 'VIEW_3D': 
+                            if self.new_pivot_point == 'Median point':
+                                space.pivot_point = 'MEDIAN_POINT'
+                            if self.new_pivot_point == 'Active element':
+                                space.pivot_point = 'ACTIVE_ELEMENT'
+                            if self.new_pivot_point == 'Individual origins':
+                                space.pivot_point = 'INDIVIDUAL_ORIGINS'
+                            if self.new_pivot_point == '3D cursor':
+                                space.pivot_point = 'CURSOR'
+                            if self.new_pivot_point == 'Bounding box center':
+                                space.pivot_point = 'BOUNDING_BOX_CENTER'
         
         for ob in ob_list: 
             if self.change_scale:
