@@ -95,21 +95,8 @@ class neuronModifiers(Operator):
             ob_list = bpy.context.selected_objects
             for ob in ob_list:
                 ob.modifiers.remove(ob.modifiers.get(self.which_modifier))
-            
-            '''print('hi: ' + self.which_modifier)
-            if self.which_modifier == 'Boolean':
-                obj.modifiers.remove(obj.modifiers.get("Boolean"))
-            if self.which_modifier == 'Decimate':
-                obj.modifiers.remove(obj.modifiers.get("Decimate"))
-            if self.which_modifier == 'Shrinkwrap':
-                obj.modifiers.remove(obj.modifiers.get("Shrinkwrap"))
-            if self.which_modifier == 'Smooth':
-                obj.modifiers.remove(obj.modifiers.get("Smooth"))
-            if self.which_modifier == 'Wireframe':
-                obj.modifiers.remove(obj.modifiers.get("Wireframe"))'''
-                    
-                
-        ob_list = bpy.context.selected_objects
+        
+        #ob_list = bpy.context.selected_objects
             
         
         if self.link_modifiers:
