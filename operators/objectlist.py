@@ -10,9 +10,9 @@ from bpy.types import Operator, AddonPreferences
 from bpy_extras.io_utils import ImportHelper, ExportHelper
 from bpy.props import FloatVectorProperty, FloatProperty, StringProperty, BoolProperty, EnumProperty, IntProperty, CollectionProperty
 
-class ChangeMaterials(Operator):
-    bl_idname = "change.materials"
-    bl_label = "change object materials"
+class objectList(Operator):
+    bl_idname = "object.list"
+    bl_label = "define object list"
     bl_options = {'UNDO'}
     
     which_objects = EnumProperty( name = "Which Objects?", items = [('Selected','Selected','Selected'),('All','All','All'), ('By name','By name','By name')],  default = 'Selected', description = "Give selected objects a common material")
