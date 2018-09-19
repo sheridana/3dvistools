@@ -73,6 +73,10 @@ class importPanel(bpy.types.Panel):
 
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
+        row.operator("peel.away", text = "Peel away", icon = "MESH_PLANE")
+
+        row = layout.row(align = True)
+        row.alignment = 'EXPAND'
         row.operator("simple.animation", text = "Simple animation", icon = 'RENDER_ANIMATION')
 
         row = layout.row(align = True)
