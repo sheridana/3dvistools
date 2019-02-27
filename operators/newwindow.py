@@ -36,7 +36,7 @@ class newWindow(Operator):
                 ('FILE_BROWSER', 'FILE_BROWSER', '', 'FILESEL', 15),
                 ('CONSOLE', 'CONSOLE', '', 'CONSOLE', 16)
                 ],
-            default = '3D view',
+            default = 'VIEW_3D',
             description = "Change new window type")
 
     def execute(self, context):
