@@ -22,7 +22,7 @@ bl_info = {
     "name": "3dvistools",
     "description": "Miscellaneous 3d visualization tools",
     "author": "Arlo Sheridan",
-    "version": (0, 0, 1),
+    "version": (0, 0, 2),
     "blender": (2, 7, 9),
     "location": "Properties > Scene > 3dvistools",
     "warning": "This addon is still in development.",
