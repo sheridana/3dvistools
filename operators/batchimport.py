@@ -62,17 +62,17 @@ class batchImport(Operator):
     def check(self, context):
         return True
 
-    def decimate(obj, decimation_factor):
-
-        print('Decimating %s by a factor of %f'%(obj, decimation_factor))
-
-        bpy.ops.modifier_add(type='DECIMATE')
-        dec = obj.modifiers['Decimate']
-        dec.ratio = decimation_factor
-
-        return obj
-
     def execute(self, context):
+
+        def decimate(obj, decimation_factor):
+
+                print('Decimating %s by a factor of %f'%(obj, decimation_factor))
+
+                bpy.ops.modifier_add(type='DECIMATE')
+                dec = obj.modifiers['Decimate']
+                dec.ratio = decimation_factor
+
+                return obj
 
         if self.which_operating_system == 'UNIX':
             path_to_obj_dir = self.path_to_data
