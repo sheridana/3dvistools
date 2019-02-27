@@ -4,6 +4,7 @@ import math
 from math import pi, radians, degrees
 import mathutils
 import sys
+import numpy as np
 from bpy.types import Operator, AddonPreferences
 from bpy_extras.io_utils import ImportHelper, ExportHelper
 from bpy.props import FloatVectorProperty, FloatProperty, StringProperty, BoolProperty, EnumProperty, IntProperty, CollectionProperty
@@ -43,6 +44,12 @@ class batchImport(Operator):
             default = False,
             description = "If importing very large objects (vertex count) or a lot of objects, use this method")
 
+    common_name = StringProperty(
+            name="Common name",
+            description="If decimating objects without using memory constraint, query by a common name",
+            default="mesh",
+            maxlen=1024)
+
     decimate_objects = BoolProperty(
             name = "Decimate?",
             default = False,
@@ -65,15 +72,11 @@ class batchImport(Operator):
     def execute(self, context):
 
         def decimate(obj, decimation_factor):
+            print('Decimating %s by a factor of %f'%(obj.name, decimation_factor))
 
-                print('Decimating %s by a factor of %f'%(obj.name, decimation_factor))
-
-                bpy.context.scene.objects.active = obj
-                bpy.ops.modifier_add(type='DECIMATE')
-                dec = obj.modifiers['Decimate']
-                dec.ratio = decimation_factor
-
-                return obj
+            bpy.ops.object.modifier_add(type='DECIMATE')
+            dec = obj.modifiers['Decimate']
+            dec.ratio = decimation_factor
 
         if self.which_operating_system == 'UNIX':
             path_to_obj_dir = self.path_to_data
@@ -99,16 +102,24 @@ class batchImport(Operator):
             if self.decimate_objects:
                 if self.memory_constraint:
                     for obj in bpy.context.selected_objects:
+                        bpy.context.scene.objects.active = obj
 
                         decimate(obj, self.decimate_ratio)
                         bpy.ops.object.modifier_apply(modifier='Decimate')
 
         if not self.memory_constraint:
+
             for obj in bpy.data.objects:
-                if obj.type == 'MESH':
-                    obj.select = True
+                obj.select = False
+
+            obj_list = [obj for obj in bpy.data.objects if self.common_name in obj.name]
+            for obj in obj_list:
+                obj.select = True
+                bpy.context.scene.objects.active = obj
 
             decimate(obj, self.decimate_ratio)
+
+            print('Linking decimate modifier to all objects with specified common name: %s'%self.common_name)
             bpy.ops.object.make_links_data(type='MODIFIERS')
             bpy.ops.object.convert(target='MESH')
 
@@ -130,6 +141,8 @@ class batchImport(Operator):
         if self.decimate_objects:
             row.prop(self, "memory_constraint")
             row.prop(self, "decimate_ratio")
+            if not self.memory_constraint:
+                row.prop(self, "common_name")
 
     def invoke(self, context, event):
         return context.window_manager.invoke_props_dialog(self, width = 800)
@@ -142,3 +155,4 @@ def unregister():
 
 if __name__ == '__main__':
     register()
+
