@@ -57,7 +57,7 @@ class importPanel(bpy.types.Panel):
 
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
-        row.operator("neuron_scale_rotation.location", text = "Object manipulation", icon = 'OUTLINER_OB_GROUP_INSTANCE')
+        row.operator("neuron_scale_rotation.location", text = "Object manipulation", icon = 'UV_SYNC_SELECT')
 
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
