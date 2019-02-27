@@ -63,6 +63,9 @@ class batchImport(Operator):
         return True
 
     def decimate(obj, decimation_factor):
+
+        print('Decimating %s by a factor of %f'%(obj, decimation_factor))
+
         bpy.ops.modifier_add(type='DECIMATE')
         dec = obj.modifiers['Decimate']
         dec.ratio = decimation_factor
@@ -98,7 +101,6 @@ class batchImport(Operator):
 
                         bpy.context.scene.objects.active = obj
 
-                        print('Decimating %s'%obj.name)
                         decimate(obj, self.decimate_ratio)
                         bpy.ops.object.modifier_apply(modifier='Decimate')
 
