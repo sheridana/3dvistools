@@ -66,8 +66,9 @@ class batchImport(Operator):
 
         def decimate(obj, decimation_factor):
 
-                print('Decimating %s by a factor of %f'%(obj, decimation_factor))
+                print('Decimating %s by a factor of %f'%(obj.name, decimation_factor))
 
+                bpy.context.scene.objects.active = obj
                 bpy.ops.modifier_add(type='DECIMATE')
                 dec = obj.modifiers['Decimate']
                 dec.ratio = decimation_factor
@@ -99,8 +100,6 @@ class batchImport(Operator):
                 if self.memory_constraint:
                     for obj in bpy.context.selected_objects:
 
-                        bpy.context.scene.objects.active = obj
-
                         decimate(obj, self.decimate_ratio)
                         bpy.ops.object.modifier_apply(modifier='Decimate')
 
@@ -108,7 +107,6 @@ class batchImport(Operator):
             for obj in bpy.data.objects:
                 if obj.type == 'MESH':
                     obj.select = True
-                bpy.context.scene.objects.active = obj
 
             decimate(obj, self.decimate_ratio)
             bpy.ops.object.make_links_data(type='MODIFIERS')
