@@ -22,11 +22,11 @@ class importPanel(bpy.types.Panel):
     bl_region_type = 'WINDOW'
     bl_context = 'scene'
     bl_label = '3D visualization tools'
-    
+
     def draw(self, context):
         scene = context.scene
         layout = self.layout
-        
+
         row = layout.row(align = True)
         row.alignment = 'EXPAND'
         row.operator("batch.import", text = "Batch import", icon = 'IMPORT')
@@ -90,10 +90,9 @@ class importPanel(bpy.types.Panel):
 
 def register():
     bpy.utils.register_module(__name__)
-    
 
 def unregister():
     bpy.utils.unregister_module(__name__)
-   
+
 if __name__ == '__main__':
     register()
