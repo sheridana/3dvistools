@@ -19,7 +19,7 @@ class batchImport(Operator):
             items = [
                 ('UNIX', 'UNIX', 'UNIX'),
                 ('Windows', 'Windows', 'Windows')
-                ],
+            ],
             default = 'UNIX',
             description = "Change the operating system?")
 
@@ -28,7 +28,7 @@ class batchImport(Operator):
             items = [
                 ('OBJ', 'OBJ', 'OBJ'),
                 ('RAW', 'RAW', 'RAW')
-                ],
+            ],
             default = 'OBJ',
             description = "Change the import method?")
 
@@ -146,13 +146,4 @@ class batchImport(Operator):
 
     def invoke(self, context, event):
         return context.window_manager.invoke_props_dialog(self, width = 800)
-
-def register():
-    bpy.utils.register_module(__name__)
-
-def unregister():
-    bpy.utils.unregister_module(__name__)
-
-if __name__ == '__main__':
-    register()
 
